@@ -1,18 +1,28 @@
 import React from 'react'
 import ThemeToggle from './ThemeToggle';
 
+const NavLinks = () => {
+  return (
+    <ul className="menu menu-horizontal px-1 gap-4">
+      <li><a href="#home" className="hover:text-primary">Home</a></li>
+      <li><a href="#about" className="hover:text-primary">About</a></li>
+      <li><a href="#services" className="hover:text-primary">Services</a></li>
+      <li><a href="#contact" className="hover:text-primary">Contact</a></li>
+    </ul>
+  );
+};
+
 const Navbar = () => {
   return (
     <div>
      
       <div className="navbar bg-base-100 shadow-sm">
          <ThemeToggle />
-  <div className="navbar-start">
-    <button class="focus-visible:outline-3 ...">Submit</button>
-   
-  </div>
+  <div className="navbar-start"> 
+     <a className="btn btn-ghost text-xl">daisyUI</a>
+    </div>
   <div className="navbar-center">
-    <a className="btn btn-ghost text-xl">daisyUI</a>
+    <NavLinks />
   </div>
   <div className="navbar-end">
     <button className="btn btn-ghost btn-circle">
