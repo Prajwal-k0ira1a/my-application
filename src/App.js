@@ -4,6 +4,7 @@ import Hero from './Hero';
 import Navbar from './Navbar';
 import Contact from './Contact/Contact';
 import Footer from './Footer';
+import Shop from './Shop'
 
 
 function App() {
@@ -14,7 +15,9 @@ function App() {
         <Hero/>
       </section>
       <section id="about" className="min-h-screen bg-base-300 p-8">About Section</section>
-      <section id="services" className="min-h-screen bg-base-100 p-8">Services Section</section>
+      <section id="services" className="min-h-screen bg-base-100 p-8">
+        <Shop/>
+      </section>
       <section id="contact" className="min-h-screen bg-base-200 p-8">
         <Contact/>
       </section>
