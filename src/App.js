@@ -18,7 +18,7 @@ function App() {
       <section id="home" className="min-h-screen bg-base-200 p-8">
         <Hero/>
       </section>
-      <section id="about" className="min-h-screen bg-base-300 p-8">About Section
+      <section id="about" className="min-h-screen bg-base-200 p-8">
         <About/>
       </section>
       <section id="services" className="min-h-screen bg-base-100 p-8">

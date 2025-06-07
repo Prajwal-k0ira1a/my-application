@@ -70,6 +70,7 @@ const Navbar = ({ cart, setCart }) => {
                         <div className="flex-1">
                           <div className="font-semibold text-gray-900 dark:text-gray-100">{item.name}</div>
                           <div className="text-sm text-gray-500 dark:text-gray-300">Rs {item.price}</div>
+                          <div className="text-xs text-gray-500 dark:text-gray-300">Qty: {item.quantity || 1}</div>
                         </div>
                         <button className="btn btn-xs btn-error" onClick={() => handleRemove(idx)}>Remove</button>
                       </li>

@@ -245,15 +245,67 @@ const products = [
     description: "Durable file folders for documents.",
     stock: 45,
     category: "Stationery"
-  }
+  },
+  {
+    name: "Paper Clips (Box)",
+    price: 30,
+    image: require('../Assets/paperclips.jpg'), // Use a relevant image if available
+    description: "Box of 100 assorted paper clips.",
+    stock: 0,
+    category: "Stationery"
+  },
+  {
+    name: "Whiteboard Duster",
+    price: 55,
+    image: require('../Assets/DUSTer.jpg'), // Use a relevant image if available
+    description: "Soft whiteboard duster for clean erasing.",
+    stock: 25,
+    category: "Stationery"
+  },
+  {
+    name: "Correction Pen",
+    price: 35,
+    image: require('../Assets/tipex.jpg'), // Use a relevant image if available
+    description: "Quick-dry correction pen for neat fixes.",
+    stock: 40,
+    category: "Stationery"
+  },
+  {
+    name: "Desk Organizer",
+    price: 220,
+    image: require('../Assets/deskOrganizer.jpg'), // Use a relevant image if available
+    description: "Keep your desk tidy with this multi-compartment organizer.",
+    stock: 20,
+    category: "Stationery"
+  },
+  {
+    name: "Sticky Flags (Pack)",
+    price: 60,
+    image: require('../Assets/stickyflags.jpg'), // Use a relevant image if available
+    description: "Pack of colorful sticky flags for marking pages.",
+    stock: 50,
+    category: "Stationery"
+  },
+  {
+    name: "Binder Clips (Set of 12)",
+    price: 40,
+    image: require('../Assets/binderClips.jpg'), // Use a relevant image if available
+    description: "Set of 12 strong binder clips for documents.",
+    stock: 35,
+    category: "Stationery"
+  },
 ];
 
 
 const Shop = ({ cart, setCart }) => {
   const [search, setSearch] = useState("");
+  const [category, setCategory] = useState("All");
+  const [message, setMessage] = useState("");
 
   const handleAddToCart = (product) => {
     addToCart(cart, setCart, product);
+    setMessage(`${product.name} added to cart!`);
+    setTimeout(() => setMessage(""), 1500);
     console.log('Added to cart:', product);
   };
 
@@ -263,16 +315,23 @@ const Shop = ({ cart, setCart }) => {
     alert(`Proceeding to buy: ${product.name} for Rs ${product.price}`);
   };
 
-  // Filter products based on search
-  const filteredProducts = products.filter(item =>
-    item.name.toLowerCase().includes(search.toLowerCase()) ||
-    item.category.toLowerCase().includes(search.toLowerCase())
-  );
+  // Filter products based on search and category
+  const filteredProducts = products.filter(item => {
+    const matchesSearch = item.name.toLowerCase().includes(search.toLowerCase()) ||
+      item.category.toLowerCase().includes(search.toLowerCase());
+    const matchesCategory = category === "All" || item.category === category;
+    return matchesSearch && matchesCategory;
+  });
 
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-6 text-center">Shop Products</h1>
-      <div className="flex justify-center mb-6">
+      {message && (
+        <div className="alert alert-success shadow-lg mb-4 w-fit mx-auto">
+          <span>{message}</span>
+        </div>
+      )}
+      <div className="flex flex-col sm:flex-row justify-center items-center mb-6 gap-2">
         <input
           type="text"
           placeholder="Search products..."
@@ -280,6 +339,15 @@ const Shop = ({ cart, setCart }) => {
           onChange={e => setSearch(e.target.value)}
           className="input input-bordered w-full max-w-xs mr-2"
         />
+        <select
+          className="select select-bordered w-full max-w-xs mr-2"
+          value={category}
+          onChange={e => setCategory(e.target.value)}
+        >
+          <option value="All">All Products</option>
+          <option value="Kirana">Kirana</option>
+          <option value="Stationery">Stationery</option>
+        </select>
         <button
           className="btn btn-primary"
           onClick={() => {}}
