@@ -1,5 +1,5 @@
 import React from 'react'
-import NavLinks from './Navbar';
+import NavLinks from '../Navbar/Navbar';
 const Hero = () => {
   return (
    <div
@@ -24,4 +24,4 @@ const Hero = () => {
   )
 }
 
-export default Hero
+export default Hero;

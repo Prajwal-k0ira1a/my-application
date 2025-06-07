@@ -1,15 +1,14 @@
-
+import logo from './logo.svg';
 import './App.css';
-import Hero from './Hero';
-import Navbar from './Navbar';
-import Contact from './Contact/Contact';
-import Footer from './Footer';
-import Shop from './Shop'
-
-
+import Navbar from './components/Navbar/Navbar';
+import Hero from './components/Hero/Hero'
+import Contact from './components/Contact/Contact';
+import Footer from './components/Footer/Footer';
+import Shop from './components/Shop/Shop';
 function App() {
   return (
-    <div className="App">
+
+  <div className="App">
       <Navbar/>
       <section id="home" className="min-h-screen bg-base-200 p-8">
         <Hero/>
@@ -23,8 +22,9 @@ function App() {
       </section>
      
      <Footer/>
-    </div>
+  
+  </div>
   );
-}
+};
 
 export default App;
