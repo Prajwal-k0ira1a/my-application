@@ -4,7 +4,7 @@ const ProductCard = ({ name, price, image, description, stock, category, onAddTo
   return (
     <div className="card bg-base-100 shadow-xl">
       <figure>
-        <img src={image} alt={name} className="w-full h-48 object-cover" />
+        <img src={image} alt={name} className="w-full h-40 object-contain bg-white rounded-t-xl p-2" />
       </figure>
       <div className="card-body">
         <h2 className="card-title">{name}</h2>

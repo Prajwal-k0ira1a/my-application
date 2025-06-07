@@ -6,11 +6,15 @@ import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
 import Shop from './components/Shop/Shop';
 import About from './components/AboutUs/About';
+import React, { useState } from 'react';
+
 function App() {
+  const [cart, setCart] = useState([]);
   return (
 
   <div className="App">
-      <Navbar/>
+      <Navbar cart={cart} setCart={setCart} />
+
       <section id="home" className="min-h-screen bg-base-200 p-8">
         <Hero/>
       </section>
@@ -18,12 +22,11 @@ function App() {
         <About/>
       </section>
       <section id="services" className="min-h-screen bg-base-100 p-8">
-        <Shop/>
+        <Shop cart={cart} setCart={setCart} />
       </section>
       <section id="contact" className="min-h-screen bg-base-200 p-8">
         <Contact/>
       </section>
-     
      <Footer/>
   
   </div>

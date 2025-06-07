@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import ProductCard from '../ProductCard/ProductCard';
+import { addToCart, removeFromCart, checkoutCart } from '../AddCart/Cart';
 
- const products = [
+const products = [
   // Kirana (Grocery) items
   {
     name: "Rice (1 kg)",
     price: 80,
-    image: "https://via.placeholder.com/200",
+    image: require('../Assets/RICE.jpg'),
     description: "High-quality basmati rice.",
     stock: 20,
     category: "Kirana"
@@ -14,7 +15,7 @@ import ProductCard from '../ProductCard/ProductCard';
   {
     name: "Cooking Oil (1 L)",
     price: 150,
-    image: "https://via.placeholder.com/200",
+    image: require('../Assets/cookingOil.jpg'),
     description: "Pure vegetable cooking oil.",
     stock: 15,
     category: "Kirana"
@@ -22,7 +23,7 @@ import ProductCard from '../ProductCard/ProductCard';
   {
     name: "Sugar (1 kg)",
     price: 60,
-    image: "https://via.placeholder.com/200",
+    image: require('../Assets/Sugar.jpg'),
     description: "Refined white sugar.",
     stock: 25,
     category: "Kirana"
@@ -30,7 +31,7 @@ import ProductCard from '../ProductCard/ProductCard';
   {
     name: "Salt (500 gm)",
     price: 20,
-    image: "https://via.placeholder.com/200",
+    image: require('../Assets/Salt.jpg'),
     description: "Iodized table salt.",
     stock: 30,
     category: "Kirana"
@@ -38,7 +39,7 @@ import ProductCard from '../ProductCard/ProductCard';
   {
     name: "Wheat Flour (1 kg)",
     price: 75,
-    image: "https://via.placeholder.com/200",
+    image: require('../Assets/wheat.jpg'),
     description: "Fresh wheat flour for everyday use.",
     stock: 18,
     category: "Kirana"
@@ -46,7 +47,7 @@ import ProductCard from '../ProductCard/ProductCard';
   {
     name: "Tea Powder (250 gm)",
     price: 120,
-    image: "https://via.placeholder.com/200",
+    image: require('../Assets/teaPowder.jpg'),
     description: "Strong aromatic tea leaves.",
     stock: 10,
     category: "Kirana"
@@ -54,7 +55,7 @@ import ProductCard from '../ProductCard/ProductCard';
   {
     name: "Instant Noodles",
     price: 35,
-    image: "https://via.placeholder.com/200",
+    image: require('../Assets/instantNoodles.png'),
     description: "Quick and tasty noodles.",
     stock: 40,
     category: "Kirana"
@@ -62,7 +63,7 @@ import ProductCard from '../ProductCard/ProductCard';
   {
     name: "Biscuits (Pack)",
     price: 40,
-    image: "https://via.placeholder.com/200",
+    image: require('../Assets/Biscuits.jpg'),
     description: "Crunchy and sweet biscuits.",
     stock: 35,
     category: "Kirana"
@@ -70,7 +71,7 @@ import ProductCard from '../ProductCard/ProductCard';
   {
     name: "Honey (250 gm)",
     price: 180,
-    image: "https://via.placeholder.com/200",
+    image: require('../Assets/Honey.jpg'),
     description: "Pure natural honey.",
     stock: 8,
     category: "Kirana"
@@ -78,7 +79,7 @@ import ProductCard from '../ProductCard/ProductCard';
   {
     name: "Coffee Powder (100 gm)",
     price: 150,
-    image: "https://via.placeholder.com/200",
+    image: require('../Assets/coffeePowder.jpg'),
     description: "Rich flavored coffee.",
     stock: 12,
     category: "Kirana"
@@ -86,7 +87,7 @@ import ProductCard from '../ProductCard/ProductCard';
   {
     name: "Salted Peanuts (100 gm)",
     price: 50,
-    image: "https://via.placeholder.com/200",
+    image: require('../Assets/peanuts.png'),
     description: "Crunchy salted peanuts snack.",
     stock: 20,
     category: "Kirana"
@@ -94,7 +95,7 @@ import ProductCard from '../ProductCard/ProductCard';
   {
     name: "Lentils (1 kg)",
     price: 90,
-    image: "https://via.placeholder.com/200",
+    image: require('../Assets/lentils.jpg'),
     description: "Mixed lentils for cooking.",
     stock: 22,
     category: "Kirana"
@@ -102,7 +103,7 @@ import ProductCard from '../ProductCard/ProductCard';
   {
     name: "Green Tea (20 bags)",
     price: 200,
-    image: "https://via.placeholder.com/200",
+    image: require('../Assets/greenTea.jpg'),
     description: "Refreshing green tea bags.",
     stock: 15,
     category: "Kirana"
@@ -110,7 +111,7 @@ import ProductCard from '../ProductCard/ProductCard';
   {
     name: "Salted Butter (200 gm)",
     price: 120,
-    image: "https://via.placeholder.com/200",
+    image: require('../Assets/saltedButter.jpg'),
     description: "Creamy salted butter.",
     stock: 10,
     category: "Kirana"
@@ -118,7 +119,7 @@ import ProductCard from '../ProductCard/ProductCard';
   {
     name: "Peanut Butter (500 gm)",
     price: 250,
-    image: "https://via.placeholder.com/200",
+    image: require('../Assets/peanutButter.jpg'),
     description: "Smooth and crunchy peanut butter.",
     stock: 12,
     category: "Kirana"
@@ -128,7 +129,7 @@ import ProductCard from '../ProductCard/ProductCard';
   {
     name: "Ballpoint Pen",
     price: 15,
-    image: "https://via.placeholder.com/200",
+    image: require('../Assets/ballPoint.jpg'),
     description: "Smooth writing ballpoint pen.",
     stock: 100,
     category: "Stationery"
@@ -136,7 +137,7 @@ import ProductCard from '../ProductCard/ProductCard';
   {
     name: "Notebook (100 pages)",
     price: 50,
-    image: "https://via.placeholder.com/200",
+    image: require('../Assets/Notebook.jpg'),
     description: "Lined paper notebook for notes.",
     stock: 60,
     category: "Stationery"
@@ -144,7 +145,7 @@ import ProductCard from '../ProductCard/ProductCard';
   {
     name: "Pencil",
     price: 10,
-    image: "https://via.placeholder.com/200",
+    image: require('../Assets/pencil.jpg'),
     description: "HB graphite pencil.",
     stock: 90,
     category: "Stationery"
@@ -152,7 +153,7 @@ import ProductCard from '../ProductCard/ProductCard';
   {
     name: "Eraser",
     price: 5,
-    image: "https://via.placeholder.com/200",
+    image: require('../Assets/Eraser.jpg'),
     description: "Soft eraser for pencils.",
     stock: 85,
     category: "Stationery"
@@ -160,7 +161,7 @@ import ProductCard from '../ProductCard/ProductCard';
   {
     name: "Sharpener",
     price: 12,
-    image: "https://via.placeholder.com/200",
+    image: require('../Assets/sharpener.jpg'),
     description: "Plastic blade sharpener.",
     stock: 70,
     category: "Stationery"
@@ -168,7 +169,7 @@ import ProductCard from '../ProductCard/ProductCard';
   {
     name: "Highlighter Set (4 colors)",
     price: 120,
-    image: "https://via.placeholder.com/200",
+    image: require('../Assets/HighlighterSET.jpg'),
     description: "Bright and vibrant highlighters.",
     stock: 30,
     category: "Stationery"
@@ -176,7 +177,7 @@ import ProductCard from '../ProductCard/ProductCard';
   {
     name: "Glue Stick",
     price: 25,
-    image: "https://via.placeholder.com/200",
+    image: require('../Assets/glueStick.jpg'),
     description: "Non-toxic glue stick for paper.",
     stock: 40,
     category: "Stationery"
@@ -184,7 +185,7 @@ import ProductCard from '../ProductCard/ProductCard';
   {
     name: "Scissors",
     price: 80,
-    image: "https://via.placeholder.com/200",
+    image: require('../Assets/Scissors.jpg'),
     description: "Sharp stainless steel scissors.",
     stock: 25,
     category: "Stationery"
@@ -192,7 +193,7 @@ import ProductCard from '../ProductCard/ProductCard';
   {
     name: "Ruler (30 cm)",
     price: 20,
-    image: "https://via.placeholder.com/200",
+    image: require('../Assets/ruler(30cm).jpg'),
     description: "Transparent plastic ruler.",
     stock: 50,
     category: "Stationery"
@@ -200,7 +201,7 @@ import ProductCard from '../ProductCard/ProductCard';
   {
     name: "Sticky Notes (Pack)",
     price: 45,
-    image: "https://via.placeholder.com/200",
+    image: require('../Assets/StickyNotes.jpg'),
     description: "Colorful sticky notes for reminders.",
     stock: 35,
     category: "Stationery"
@@ -208,7 +209,7 @@ import ProductCard from '../ProductCard/ProductCard';
   {
     name: "Marker Pen",
     price: 40,
-    image: "https://via.placeholder.com/200",
+    image: require('../Assets/marker.jpg'),
     description: "Permanent black marker pen.",
     stock: 40,
     category: "Stationery"
@@ -216,7 +217,7 @@ import ProductCard from '../ProductCard/ProductCard';
   {
     name: "Drawing Compass",
     price: 150,
-    image: "https://via.placeholder.com/200",
+    image: require('../Assets/compass.jpg'),
     description: "Precision drawing compass.",
     stock: 15,
     category: "Stationery"
@@ -224,7 +225,7 @@ import ProductCard from '../ProductCard/ProductCard';
   {
     name: "Stapler",
     price: 100,
-    image: "https://via.placeholder.com/200",
+    image: require('../Assets/stapler.png'),
     description: "Standard office stapler.",
     stock: 20,
     category: "Stationery"
@@ -232,7 +233,7 @@ import ProductCard from '../ProductCard/ProductCard';
   {
     name: "Calculator",
     price: 350,
-    image: "https://via.placeholder.com/200",
+    image: require('../Assets/calculator.jpg'),
     description: "Basic scientific calculator.",
     stock: 18,
     category: "Stationery"
@@ -240,7 +241,7 @@ import ProductCard from '../ProductCard/ProductCard';
   {
     name: "File Folder (Pack of 5)",
     price: 90,
-    image: "https://via.placeholder.com/200",
+    image: require('../Assets/FileFolder.jpg'),
     description: "Durable file folders for documents.",
     stock: 45,
     category: "Stationery"
@@ -248,11 +249,11 @@ import ProductCard from '../ProductCard/ProductCard';
 ];
 
 
-const Shop = () => {
-  const [cart, setCart] = useState([]);
+const Shop = ({ cart, setCart }) => {
+  const [search, setSearch] = useState("");
 
   const handleAddToCart = (product) => {
-    setCart(prev => [...prev, product]);
+    addToCart(cart, setCart, product);
     console.log('Added to cart:', product);
   };
 
@@ -262,11 +263,32 @@ const Shop = () => {
     alert(`Proceeding to buy: ${product.name} for Rs ${product.price}`);
   };
 
+  // Filter products based on search
+  const filteredProducts = products.filter(item =>
+    item.name.toLowerCase().includes(search.toLowerCase()) ||
+    item.category.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-6 text-center">Shop Products</h1>
+      <div className="flex justify-center mb-6">
+        <input
+          type="text"
+          placeholder="Search products..."
+          value={search}
+          onChange={e => setSearch(e.target.value)}
+          className="input input-bordered w-full max-w-xs mr-2"
+        />
+        <button
+          className="btn btn-primary"
+          onClick={() => {}}
+        >
+          Search
+        </button>
+      </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {products.map((item, index) => (
+        {filteredProducts.map((item, index) => (
           <ProductCard
             key={index}
             name={item.name}
