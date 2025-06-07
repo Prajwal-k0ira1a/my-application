@@ -57,10 +57,7 @@ const About = () => {
             We specialize in essential daily goods and believe in putting customers first.
           </p>
 
-          <p className="text-gray-600 text-lg">
-            Our business started with a humble vision and is now a trusted name among hundreds of loyal customers. 
-            We’re growing each day with passion, dedication, and a commitment to excellence.
-          </p>
+        
 
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-4">

@@ -12,10 +12,10 @@ const Hero = () => {
   <div className="hero-overlay"></div>
   <div className="hero-content text-neutral-content text-center">
     <div className="max-w-md">
-      <h1 className="mb-5 text-5xl font-bold">Welcome to Our World of Innovation</h1>
+      <h1 className="mb-5 text-5xl font-bold">Welcome to Bhawana Kirana</h1>
       <p className="mb-5">
-       Discover creative solutions crafted with passion and precision.
-      From concept to execution, we bring ideas to life and help your brand stand out in a digital-first world.
+        Your one-stop shop for daily essentials and stationery. <br />
+        Quality products, friendly service, and great prices—everything you need, all in one place!
       </p>
       <button className="btn btn-primary"> <a href="#services" className="btn btn-primary">Get Started</a></button>
     </div>

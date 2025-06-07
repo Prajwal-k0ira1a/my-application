@@ -259,7 +259,7 @@ const Shop = () => {
   const handleBuyNow = (product) => {
     // For now, just log it — you can redirect to checkout or show modal here
     console.log('Buying now:', product);
-    alert(`Proceeding to buy: ${product.name} for ₹${product.price}`);
+    alert(`Proceeding to buy: ${product.name} for Rs ${product.price}`);
   };
 
   return (
