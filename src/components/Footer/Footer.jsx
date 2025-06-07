@@ -6,37 +6,39 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-10 pb-8">
         {/* Logo & About */}
         <div className="flex flex-col items-center md:items-start gap-3">
-          <img src={require('../Assets/image.png')} alt="Logo" className="w-20 h-20 rounded-full shadow-lg border-4 border-primary" />
+          <img src={require('../Assets/image.png')} alt="Logo" className="w-60 h-20 object-contain shadow-lg border-4 border-primary" />
           <h2 className="text-2xl font-bold text-primary">Bhawana Kirana</h2>
           <p className="text-gray-500 text-center md:text-left">Since 1990<br />Your trusted shop for daily essentials & stationery.</p>
         </div>
         {/* Services */}
         <div>
-          <h6 className="footer-title text-lg font-semibold mb-2 text-primary">Services</h6>
-          <ul className="space-y-1">
-            <li><a className="link link-hover">Branding</a></li>
-            <li><a className="link link-hover">Design</a></li>
-            <li><a className="link link-hover">Marketing</a></li>
-            <li><a className="link link-hover">Advertisement</a></li>
-          </ul>
+          <h6 className="footer-title text-lg font-semibold mb-2 text-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Located in </h6>
+          <div className="flex justify-center md:justify-start">
+            <img
+              src={require('../Assets/map.png')}
+              alt="Shop Location Map"
+              className="w-52 h-32 rounded-xl shadow-lg border-2 border-primary transition-all duration-300 hover:shadow-[0_0_30px_10px_rgba(59,130,246,0.5)] hover:scale-105 hover:border-blue-400"
+              style={{ boxShadow: '0 0 0 0 rgba(59,130,246,0.5)' }}
+            />
+          </div>
         </div>
         {/* Company */}
         <div>
           <h6 className="footer-title text-lg font-semibold mb-2 text-primary">Company</h6>
           <ul className="space-y-1">
-            <li><a className="link link-hover">About us</a></li>
-            <li><a className="link link-hover">Contact</a></li>
-            <li><a className="link link-hover">Jobs</a></li>
-            <li><a className="link link-hover">Press kit</a></li>
+            <li><a href="#about" className="link link-hover">About us</a></li>
+            <li><a href="#contact" className="link link-hover">Contact</a></li>
+            <li><a href="#home" className="link link-hover">Home</a></li>
+            <li><a href="#shop" className="link link-hover">Shop</a></li>
           </ul>
         </div>
         {/* Legal & Social */}
         <div>
           <h6 className="footer-title text-lg font-semibold mb-2 text-primary">Legal</h6>
           <ul className="space-y-1 mb-4">
-            <li><a className="link link-hover">Terms of use</a></li>
-            <li><a className="link link-hover">Privacy policy</a></li>
-            <li><a className="link link-hover">Cookie policy</a></li>
+            <li><a href="/terms" className="link link-hover">Terms of use</a></li>
+            <li><a href="/privacy" className="link link-hover">Privacy policy</a></li>
+            <li><a href="/cookies" className="link link-hover">Cookie policy</a></li>
           </ul>
           <div className="flex gap-4 justify-center md:justify-start">
             <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors duration-200">

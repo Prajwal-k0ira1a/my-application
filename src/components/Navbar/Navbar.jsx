@@ -8,6 +8,7 @@ const NavLinks = () => {
       <li><a href="#home" className="hover:text-primary">Home</a></li>
       <li><a href="#about" className="hover:text-primary">About</a></li>
       <li><a href="#services" className="hover:text-primary">Services</a></li>
+      <li><a href="#team" className="hover:text-primary">Team</a></li>
       <li><a href="#contact" className="hover:text-primary">Contact</a></li>
     </ul>
   );
@@ -26,13 +27,14 @@ const Navbar = ({ cart, setCart }) => {
   // Print bill for checkout
   const handleCheckout = () => {
     checkoutCart(cart);
+    setCart([]); 
   };
 
   return (
     <div>
       <div className="navbar bg-base-100 shadow-sm">
         <div className="navbar-start">
-          <a className="btn btn-ghost text-xl">daisyUI</a>
+          <a className="btn btn-ghost text-xl"><img src={require('../Assets/image.png')} alt="Logo" className="w-30 h-16 object-contain shadow-lg border-4 border-primary" /></a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <NavLinks />

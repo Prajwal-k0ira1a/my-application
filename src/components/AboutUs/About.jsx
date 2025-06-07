@@ -3,7 +3,7 @@ import aboutImg from '../Assets/about.jpg';
 
 const About = () => {
   const staticText = "We provide goods like";
-  const rotatingWords = ["kirana", "stationery", "many more"];
+  const rotatingWords = ["kirana", "stationery", " and many more"];
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [animatedText, setAnimatedText] = useState('');
   const [charIndex, setCharIndex] = useState(0);
@@ -27,8 +27,8 @@ const About = () => {
   }, [charIndex, currentWordIndex]);
 
   return (
-    <div className="min-h-[100vh] bg-gradient-to-br from-base-200 to-base-100 flex items-center justify-center px-8 py-24">
-      <div className="w-full max-w-[1800px] bg-white dark:bg-gray-900 shadow-2xl rounded-3xl flex flex-col lg:flex-row overflow-hidden min-h-[95vh]">
+    <div className="min-h-[30vh] bg-gradient-to-br from-base-200 to-base-100 flex items-center justify-center px-8 py-4">
+      <div className="w-full max-w-[1800px] bg-white dark:bg-gray-900 shadow-2xl rounded-3xl flex flex-col lg:flex-row overflow-hidden min-h-[20vh]">
         
         {/* Left: Image Section */}
         <div className="lg:w-1/2 h-[600px] lg:h-auto">
@@ -57,12 +57,20 @@ const About = () => {
             We specialize in essential daily goods and believe in putting customers first.
           </p>
 
-        
-
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-4">
-            <button className="btn btn-primary btn-lg hover:bg-primary/80 hover:brightness-110 transition-colors duration-200">Meet the Team</button>
-            <button className="btn btn-outline btn-lg bg-white bg-opacity-80 dark:bg-gray-100 dark:text-gray-900 border-primary border-2 hover:bg-primary hover:text-white transition-colors duration-200">Our Story</button>
+            <a
+              href="#team"
+              className="btn btn-primary btn-lg hover:bg-primary/80 hover:brightness-110 transition-colors duration-200"
+            >
+              Meet the Team
+            </a>
+            <a
+              href="#about"
+              className="btn btn-outline btn-lg bg-white bg-opacity-80 dark:bg-gray-100 dark:text-gray-900 border-primary border-2 hover:bg-primary hover:text-white transition-colors duration-200"
+            >
+              Our Story
+            </a>
           </div>
 
           {/* Stats */}
