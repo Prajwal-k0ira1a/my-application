@@ -27,21 +27,11 @@ const Footer = () => {
 </footer>
 <footer className="footer bg-base-200 text-base-content border-base-300 border-t px-10 py-4">
   <aside className="grid-flow-col items-center">
-    <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-      fillRule="evenodd"
-      clipRule="evenodd"
-      className="fill-current">
-      <path
-        d="src\assets\image.png"></path>
-    </svg>
+<img src="./Assets/image.png" alt="Logo" className="w-16 h-16 rounded-full" />
     <p>
-      ACME Industries Ltd.
+     Bhawana Kirana
       <br />
-      Providing reliable tech since 1992
+     Since 1990
     </p>
   </aside>
   <nav className="md:place-self-center md:justify-self-end">
